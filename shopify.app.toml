@@ -1,0 +1,30 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "69d6b991b6bbf36c333948a379f60808"
+application_url = "https://localhost:3000"
+embedded = true
+name = "eulerian-analytics"
+handle = "eulerian-analytics"
+
+[webhooks]
+api_version = "2025-01"
+
+[[webhooks.subscriptions]]
+compliance_topics = ["customers/data_request", "customers/redact", "shop/redact"]
+uri = "https://shpfy.api.eulerian.com/webhooks"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_pixels,read_customer_events"
+
+[auth]
+redirect_urls = ["https://localhost:3000/auth/callback"] # Dummy URL, not used
+
+
+[pos]
+embedded = false
+
+[build]
+include_config_on_deploy = true
+dev_store_url = "dev-store-eulerian.myshopify.com"
+
